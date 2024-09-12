@@ -56,8 +56,9 @@ jobs:
       - name: Deploy to Amazon ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          cluster: my-ecs-cluster
-          service: my-ecs-service
-          image: "218238637006.dkr.ecr.us-west-2.amazonaws.com/my-java-app:latest"
-          region: us-west-2  # Cambia a tu región de AWS
+          cluster: devcluster
+          service: devservice
+          task-definition: devtask
+          force-new-deployment: true
+          region: us-west-2
 
