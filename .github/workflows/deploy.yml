@@ -21,6 +21,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+          distribution: 'temurin'  # Agregar el parámetro distribution
 
       - name: Build and analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@v2.1
