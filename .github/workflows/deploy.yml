@@ -58,7 +58,7 @@ jobs:
         with:
           cluster: devcluster
           service: devservice
-          task-definition: arn:aws:ecs:us-west-2:218238637006:task-definition/devtask:2
+          task-definition: devtask.json
           force-new-deployment: true
           region: us-west-2
 
