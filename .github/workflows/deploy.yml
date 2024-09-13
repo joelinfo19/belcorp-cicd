@@ -53,6 +53,11 @@ jobs:
           IMAGE_URI="218238637006.dkr.ecr.us-west-2.amazonaws.com/my-java-app:${{github.sha}}"
           docker push $IMAGE_URI
 
+      - name: Update task definition
+        run: |
+          IMAGE_TAG=${{ github.sha }}
+          sed -i "s|123456789012.dkr.ecr.us-west-2.amazonaws.com/my-java-app:latest|123456789012.dkr.ecr.us-west-2.amazonaws.com/my-java-app:${IMAGE_TAG}|g" task-definition.json
+
       - name: Deploy to Amazon ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
