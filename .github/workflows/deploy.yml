@@ -56,7 +56,7 @@ jobs:
       - name: Update task definition
         run: |
           IMAGE_TAG=${{ github.sha }}
-          sed -i "s|123456789012.dkr.ecr.us-west-2.amazonaws.com/my-java-app:latest|123456789012.dkr.ecr.us-west-2.amazonaws.com/my-java-app:${IMAGE_TAG}|g" task-definition.json
+          sed -i "s|123456789012.dkr.ecr.us-west-2.amazonaws.com/my-java-app:latest|123456789012.dkr.ecr.us-west-2.amazonaws.com/my-java-app:${IMAGE_TAG}|g" devtask.json
 
       - name: Deploy to Amazon ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
